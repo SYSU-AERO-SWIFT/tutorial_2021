@@ -22,59 +22,49 @@ int Mirror_rules[40] =
 };
 
 //judge function
-bool judge(int x,int y)
-{
+bool judge(int x,int y){
   if(Mirror_rules[x] == -1 || Mirror_rules[y] == -1) return 0;
   return x == Mirror_rules[y];
 }
 
-//change function
-int s_i(char x)
-{
+//change function----turn char to int tag
+int s_i(char x){
   if(x<='9' && x>= '0') return 26 + x - '0';
   else return x - 'A';
 }
 
 //solution
-string longestMirrorString(string strs)
-{
+string longestMirrorString(string strs){
   vector<string> tmp;
   int maxlen = 2;
   int len = strs.size();
   //odd b[a]b
-  for(int i=0; i<len; ++i) // the middle position
-  {
+  for(int i=0; i<len; ++i){ // the middle position
     int j;
-    for(j=1; j<=i && j+i<len; ++j)
-    {
-      if( !judge(s_i(strs[i-j]),s_i(strs[i+j])) )
-      {
-
-        if(j+j-1 > maxlen)
-        {
+    for(j=1; j<=i && j+i<len; ++j) {
+      if( !judge(s_i(strs[i-j]),s_i(strs[i+j])) ){ //stop compare
+        if(j+j-1 > maxlen){
           tmp.clear();
           maxlen = j + j - 1;
           tmp.push_back(strs.substr(i-j+1,maxlen));
         }
-        else if(j+j-1 == maxlen)
-        {
+
+        else if(j+j-1 == maxlen){
           tmp.push_back(strs.substr(i-j+1,maxlen));
         }
+
         break;
       }
     }
 
     //finish all
-    if(j>i || i+j>=len)
-    {
-      if(j+j-1 > maxlen)
-      {
+    if(j>i || i+j>=len){
+      if(j+j-1 > maxlen){
         tmp.clear();
         maxlen = j + j - 1;
         tmp.push_back(strs.substr(i-j+1,maxlen));
       }
-      else if(j+j-1 == maxlen)
-      {
+      else if(j+j-1 == maxlen){
         tmp.push_back(strs.substr(i-j+1,maxlen));
       }
     }
@@ -82,22 +72,16 @@ string longestMirrorString(string strs)
   }
 
   //even b[aa]b
-  for(int i=0; i<len-1; ++i) // the first-middle position
-  {
+  for(int i=0; i<len-1; ++i){ // the first-middle position
     int j;
-    for(j=0; j<=i && j+i+1<len; ++j)
-    {
-      if( !judge(s_i(strs[i-j]),s_i(strs[i+j+1])) )
-      {
-
-        if(j+j > maxlen)  //find a better ans
-        {
+    for(j=0; j<=i && j+i+1<len; ++j){
+      if( !judge(s_i(strs[i-j]),s_i(strs[i+j+1])) ){
+        if(j+j > maxlen) { //find a better ans
           tmp.clear();
           maxlen = j + j ;
           tmp.push_back(strs.substr(i-j+1,maxlen));
         }
-        else if(j+j == maxlen)   //find another example
-        {
+        else if(j+j == maxlen) {  //find another example
           tmp.push_back(strs.substr(i-j+1,maxlen));
         }
 
@@ -105,36 +89,31 @@ string longestMirrorString(string strs)
 
       }
 
-      if(j>i || j+i >=len-1)
-      {
-        if(j+j > maxlen)  //find a better ans
-        {
+      if(j>i || j+i >=len-1){
+        if(j+j > maxlen) { //find a better ans
           tmp.clear();
           maxlen = j + j ;
           tmp.push_back(strs.substr(i-j+1,maxlen));
         }
-        else if(j+j == maxlen)   //find another example
-        {
+        else if(j+j == maxlen) {  //find another example
           tmp.push_back(strs.substr(i-j+1,maxlen));
         }
       }
-
     }
   }
 
   string ans = "";
   // output control
-  for(int i=0; i<tmp.size(); ++i)
-  {
+  for(int i=0; i<tmp.size(); ++i){
     if(i == 0) ans += tmp[i];
-    else ans += "¡¢"+ tmp[i];
+    else ans += ","+ tmp[i];
   }
   return ans;
 }
 
-//main text
-int main(int argc,char **argv)
-{
+/*
+//main test function
+int main(int argc,char **argv){
   string s;
 //	for(int i=0;i<36;++i)
 //		cout<<i<<"   "<<Mirror_rules[i]<<endl;
@@ -142,3 +121,4 @@ int main(int argc,char **argv)
   cout<<longestMirrorString(s)<<endl;
   return 0;
 }
+*/
