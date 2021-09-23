@@ -5,9 +5,10 @@ using namespace std;
 
 /*
  *
+ * Auther : PEACH
  * using the Brute algorithm
  * time complex: O(n^2)
- *
+ *  
  */
 
 // -1 represent no mirror
@@ -38,6 +39,7 @@ string longestMirrorString(string strs){
   vector<string> tmp;
   int maxlen = 2;
   int len = strs.size();
+
   //odd b[a]b
   for(int i=0; i<len; ++i){ // the middle position
     int j;
@@ -68,7 +70,6 @@ string longestMirrorString(string strs){
         tmp.push_back(strs.substr(i-j+1,maxlen));
       }
     }
-
   }
 
   //even b[aa]b
@@ -111,7 +112,7 @@ string longestMirrorString(string strs){
   return ans;
 }
 
-/*
+
 //main test function
 int main(int argc,char **argv){
   string s;
@@ -121,4 +122,4 @@ int main(int argc,char **argv){
   cout<<longestMirrorString(s)<<endl;
   return 0;
 }
-*/
+
