@@ -112,7 +112,7 @@ string longestMirrorString(string strs){
   return ans;
 }
 
-
+/*
 //main test function
 int main(int argc,char **argv){
   string s;
@@ -122,4 +122,4 @@ int main(int argc,char **argv){
   cout<<longestMirrorString(s)<<endl;
   return 0;
 }
-
+*/
