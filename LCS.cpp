@@ -1,11 +1,15 @@
 using namespace std;
 #include <iostream>
 string longestMirror(string s);
+string s2;
+string s;
 int main()
 {
-   cout<< longestMirror("LLYOYJJ")<<endl;
-
-
+    cin >> s;
+   cout<< longestMirror(s)<<endl;
+   if (longestMirror(s2) == longestMirror(s))
+       cout << longestMirror(s2);
+   
 }
     int mirror(int input)
     {
@@ -54,17 +58,17 @@ int main()
         else if (input == 56)
             return 56;
 }
-int EAC(string s, int left, int right)
+int EAC(string s, int left, int right) 
      {
         int L = left, R = right;
-        while (L >= 0 && R < s.length() && s[L] == mirror(s[R]))
+        while (L >= 0 && R < s.length() && s[L] == mirror(s[R])) 
         {
             L--;
             R++;
         }
         return R - L - 1;
     }
-    string longestMirror(string s)
+    string longestMirror(string s) 
     {
         if (s == "" || s.length() < 1) return "";
         int start = 0, end = 0;
@@ -77,14 +81,12 @@ int EAC(string s, int left, int right)
                 end = i + len / 2;
             }
         }
-       string s2(s, end + 1);
-       if (size(s.substr(start, end + 1)) < 3)
+      string s2(s, end + 1);
+       int LEN = end + 1 - start;
+       if (size(s.substr(start, LEN)) < 3)
            return "";
 
-       else if (size(longestMirror(s2)) == size(s.substr(start, end + 1)))
-           return s.substr(start, end + 1)+longestMirror(s2);
+
        else
-        return s.substr(start, end + 1);
+        return s.substr(start, LEN);
     }
-
-
