@@ -1,0 +1,14 @@
+#!/bin/bash
+date
+mkdir /tmp/lstest
+cd /tmp/lstest
+mkdir a1d
+mkdir b56e
+mkdir 6test
+touch xy
+touch x2y
+touch 732
+ls ./[a,x,6]*
+ls ./[a-z,A-Z][0-9]*
+
+
