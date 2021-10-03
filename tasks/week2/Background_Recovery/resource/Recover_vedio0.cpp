@@ -54,7 +54,7 @@ void Recovery::showResult()
 int main()
 {
 	Recovery recovery;
-	recovery.readVideo("~/Desktop/tutorial_2021/tutorial_2021/tasks/week2/resource/video0.mp4");
+	recovery.readVideo("/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week2/resource");
 	recovery.process();
 	recovery.showResult();
 }

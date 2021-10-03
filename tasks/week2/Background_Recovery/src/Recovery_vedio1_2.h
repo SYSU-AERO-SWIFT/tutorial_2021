@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include <vector>
@@ -17,7 +16,7 @@ public:
     * @param filePath 文件绝对路径
     * 根据绝对路径读取需要还原背景的文件
     */
-
+    
 
     void readVideo(string filePath);
 
@@ -31,9 +30,29 @@ public:
     */
     void showResult();
 
+    void InitImages(Mat &init_image);
+
+    void Accumulate_background();
+
+    void createModelsfromStats();
+
+    void setHighThreshold(float high);
+
+    void setLowThreshold(float low);
+
+    void backgroundDiff();
+
+    void DeallocateImage();
+
+    //void Mat_addition(Mat& fst, Mat& snd);
+  
 private:
     VideoCapture capture;
-    Mat recovery_image;
-    Mat frame;
-
+    Mat image_recovery, IavgF, IdiffF, IprevF, IhiF, IlowF;
+    Mat Iscratch, Iscratch2;
+    Mat Imaskt;
+    Mat Imask;
+    Mat mask;
+    float Icount;
+    
 };
