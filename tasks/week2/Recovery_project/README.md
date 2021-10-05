@@ -1,50 +1,63 @@
-#### 考核项目 Background recovery 说明文档
+# 项目Background Recovery说明
 
-##### 	基本信息
+## 基本信息
 
-- 作者：杨诺萁  
+**作者**：杨诺萁
 
-- 创建日期：21/10/3
+**修改日期**：21/10/4
 
-- 版本：1.0.0
+**简介**：包含类**Recovery**的定义和实现，实现从给定的视频中读取帧，按**累积帧**和**累积绝对值帧间差分**后取平均的方法建立背景模型，从而提取背景。
 
-- 简介：编写Recovery类，在理想情况下提取视频的背景
+***
 
-  ***
+## 类说明
 
-  ##### 基本功能与接口
+### 方法与接口
 
-  1. 读取视频文件 void VideoCapture(string filePath)
+**读取视频**：
 
-  2. 处理视频文件得到背景 void Process()
+```C++
+void VideoCapture(string FilePath)
+```
 
-  3. 显示提取到的背景 void show() 
+**处理帧与背景建模**：
 
-     * 接口示例：
+```C++
+void Process()
+```
 
-     Recovery test; //declare
+**展示背景结果**
 
-     test.VideoCapture(someString); //Read video
+```C++
+void show()
+```
 
-     test.Process(); //Get background
+### 编译
 
-     test.show(); //Show result
+```shell
+# 先切换到工程目录下
+make clearall
+make
+```
 
-     *****
+### 运行
 
-     ##### 编译与执行
+```shell
+./bin/test1 ./resource/video0.mp4 #示例
+```
 
-     * 示例：
+### 背景提取过程的具体说明
 
-     $ make //编译
+```C++
+// 我对读取的图片都进行了resize处理，否则虽然能通过编译，但
+// 运行过程中会出现内存错误
 
-     $ ./bin/test1 ./resource/video0.mp4 //执行
+// 背景模型实际上是平均值上下的一个区间，是8位灰度矩阵
+// 建模完成后，重新读取第一帧，用背景模型判定前景部分，并用保留
+// 的彩色平均背景进行替换，得到结果
 
-     
-
-     
-
-  
+// 前景判定的方法是：位于区间内的是背景，反之则是前景
+```
 
 
 
