@@ -36,7 +36,8 @@ void show()
 
 ```shell
 # 先切换到工程目录下
-make clearall
+rm ./bin/test1
+make clear
 make
 ```
 
