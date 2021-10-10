@@ -76,6 +76,7 @@ find_package(catkin REQUIRED COMPONENTS
 #   std_msgs
 # )
 
+
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
 ################################################
@@ -107,7 +108,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES little_car
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+#   CATKIN_DEPENDS roscpp rospy std_msgs 
 #  DEPENDS system_lib
 )
 
@@ -152,6 +153,9 @@ include_directories(
  target_link_libraries(${PROJECT_NAME}_node
    ${catkin_LIBRARIES}
  )
+
+add_executable(control_publisher src/control_publisher.cpp)
+target_link_libraries(control_publisher ${catkin_LIBRARIES})
 
 #############
 ## Install ##
