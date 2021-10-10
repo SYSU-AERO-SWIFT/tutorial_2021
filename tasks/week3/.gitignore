@@ -1,0 +1,7 @@
+*.[oa]
+*.exe
+*.out
+1/build
+1/devel
+ros_project/build
+ros_project/launch

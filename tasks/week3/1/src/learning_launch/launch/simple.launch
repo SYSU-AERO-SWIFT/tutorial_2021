@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="task1" type="random_subscriber" name="talker" output="screen" />
+    <node pkg="task1" type="random_publisher" name="listener" output="screen" /> 
+</launch>
+
+
