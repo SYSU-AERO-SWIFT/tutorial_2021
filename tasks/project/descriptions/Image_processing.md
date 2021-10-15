@@ -39,7 +39,7 @@
 ### 待检测目标
 要检测的目标的正面图像如下：
 
-![sign_sample](pic.github/sign_sample.png)
+![sign_sample](https://github.com/SYSU-AERO-SWIFT/tutorial_2021/blob/main/pic.github/sign_sample.png)
 
 你可以在项目资源中找到这张图片（sign_sample.png）。
 
