@@ -1,0 +1,5 @@
+
+<launch>
+    <node pkg="beginner_tutorials" type="pub" name="pub" output="screen" />
+    <node pkg="beginner_tutorials" type="sub" name="sub" output="screen" /> 
+</launch>
