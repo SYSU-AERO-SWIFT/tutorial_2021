@@ -1,0 +1,4 @@
+<launch>/
+<node pkg="taskweek3" type="listener" name="listen" launch-prefix="gnome-terminal -e"/>
+<node pkg="taskweek3" type="talker" name="talk" launch-prefix="gnome-terminal -e"/>
+</launch>

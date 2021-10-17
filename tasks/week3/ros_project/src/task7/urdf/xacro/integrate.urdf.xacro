@@ -1,0 +1,4 @@
+<robot name="movecar" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="moving_robot.urdf.xacro" />
+    <xacro:include filename="control.urdf.xacro" />
+</robot>

@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<launch>
+<param name="robot_description" textfile="$(find littlecar)/urdf/little_car.urdf" />
+<param name="use_gui" value="True"/>
+<arg name="rvizconfig" default="$(find littlecar)/rviz/urdf.rviz" />
+<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+<node name="rviz" pkg="rviz" type="rviz"/>
+<node name="littlecar_node" pkg="littlecar" type="littlecar_node"/>
+<node name="commandPub" pkg="littlecar" type="commandPub"/>
+</launch>
