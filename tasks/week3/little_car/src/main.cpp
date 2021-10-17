@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
 	 */
     	ros::Rate loop_rate(60);
 	SVector3 velocity;  //速度向量
-	car.set_noise_level(1);		   //设置噪声等级
+	car.set_noise_level(0);		   //设置噪声等级
         while (ros::ok()) {
 	//	yaw += 0.01;
 	//	car.set_yaw(yaw); 		   //修改小车的方向 
