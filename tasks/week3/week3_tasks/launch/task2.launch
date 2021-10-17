@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="week3_tasks" type="Rfdata_server" name="Rfdata_server" output="screen"/>
+	<node pkg="week3_tasks" type="Rfdata_client" name="Rfdata_client" output="screen"/>
+
+</launch>

@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="week3_tasks" type="Rdata_subscriber" name="Rdata_subscriber" output="screen"/>
+	<node pkg="week3_tasks" type="Rdata_publisher" name="Rdata_publisher" output="screen"/>
+
+</launch>
