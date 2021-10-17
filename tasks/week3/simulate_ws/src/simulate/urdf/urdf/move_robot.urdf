@@ -1,0 +1,108 @@
+<robot name="move_robot">
+    <link name="base_footprint">
+        <visual>
+            <geometry>
+                <sphere radius="0.001" />
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.08" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="yellow">
+                <color rgba="0.8 0.3 0.1 0.5" />
+            </material>
+        </visual>
+    </link>
+
+    <joint name="base_link2base_footprint" type="fixed">
+        <parent link="base_footprint" />
+        <child link="base_link"/>
+        <origin xyz="0 0 0.055" />
+    </joint>
+
+    <link name="left_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.0325" length="0.015" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="1.5705 0 0" />
+            <material name="black">
+                <color rgba="0.0 0.0 0.0 1.0" />
+            </material>
+        </visual>
+
+    </link>
+
+    <joint name="left_wheel2base_link" type="continuous">
+        <parent link="base_link" />
+        <child link="left_wheel" />
+        <origin xyz="0 0.1 -0.0225" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+
+    <link name="right_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.0325" length="0.015" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="1.5705 0 0" />
+            <material name="black">
+                <color rgba="0.0 0.0 0.0 1.0" />
+            </material>
+        </visual>
+
+    </link>
+
+    <joint name="right_wheel2base_link" type="continuous">
+        <parent link="base_link" />
+        <child link="right_wheel" />
+        <origin xyz="0 -0.1 -0.0225" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+
+    <link name="front_wheel">
+        <visual>
+            <geometry>
+                <sphere radius="0.0075" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="black">
+                <color rgba="0.0 0.0 0.0 1.0" />
+            </material>
+        </visual>
+    </link>
+
+    <joint name="front_wheel2base_link" type="continuous">
+        <parent link="base_link" />
+        <child link="front_wheel" />
+        <origin xyz="0.0925 0 -0.0475" />
+        <axis xyz="1 1 1" />
+    </joint>
+
+    <link name="back_wheel">
+        <visual>
+            <geometry>
+                <sphere radius="0.0075" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="black">
+                <color rgba="0.0 0.0 0.0 1.0" />
+            </material>
+        </visual>
+    </link>
+
+    <joint name="back_wheel2base_link" type="continuous">
+        <parent link="base_link" />
+        <child link="back_wheel" />
+        <origin xyz="-0.0925 0 -0.0475" />
+        <axis xyz="1 1 1" />
+    </joint>
+
+</robot>
