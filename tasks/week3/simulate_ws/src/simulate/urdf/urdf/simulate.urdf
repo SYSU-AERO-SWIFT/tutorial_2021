@@ -1,0 +1,18 @@
+<!--root label:robot-->
+<robot name="mycar">
+    <!--link label-->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://simulate/meshes/autolabor_mini.stl"/>
+            </geometry>
+            
+            <origin xyz="0 0 0" rpy="1.57 0 0" />
+            
+            <material name="color">
+                <color rgba="0 1 1 0.5"/>
+            </material>
+
+        </visual>
+    </link>
+</robot>

@@ -1,0 +1,2 @@
+simulate
+-DCMAKE_BUILD_TYPE=RelWithDebInfo -G Unix Makefiles -DCATKIN_DEVEL_PREFIX=/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week3/simulate_ws/devel_isolated -DCMAKE_INSTALL_PREFIX=/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week3/simulate_ws/install_isolated

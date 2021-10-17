@@ -1,0 +1,4 @@
+<launch>
+<node pkg="package_publish_random" type="random_publisher" name="random_publisher"/>
+<node pkg="package_publish_random" type="random_subscriber" name="random_subscriber"/>
+</launch>

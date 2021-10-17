@@ -1,0 +1,18 @@
+<launch>
+    <param name="robot_description" textfile="$(find simulate)/urdf/urdf/move_robot.urdf" />
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find simulate)/config/rvizconfig.rviz"/>
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+
+    <node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen">
+    <rosparam file="$(find simulate)/config/move_robot.yaml" command="load" />
+    <param name="sim" value="true" />
+    </node>
+
+    <node name="circle" pkg="simulate" type="circle"/>
+    
+
+
+</launch>

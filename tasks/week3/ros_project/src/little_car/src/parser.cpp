@@ -1,7 +1,12 @@
 #include "parser.h"
+#include <geometry_msgs/Point.h>
+#include <ros/ros.h>
 little_car::little_car()
 {
+	
 }
+
+
 SVector3 little_car::get_velocity()
 {
 	return this->_velocity;
@@ -34,7 +39,6 @@ void little_car::add_noise()
 	_velocity.y += noise[1];
 	_velocity.z  = 0;
 	return;
-
 }
 void little_car::set_noise_level(int level)
 {
@@ -59,7 +63,7 @@ void little_car::update_position()
 }
 void little_car::update_()
 {
-	
+	ros::Rate rate(20);
 	joint_state.header.stamp = ros::Time::now();
    	joint_state.name.resize(4);
    	joint_state.position.resize(4);
@@ -71,9 +75,14 @@ void little_car::update_()
     joint_state.position[2] = 0;
 	joint_state.name[3] ="base_to_wheel_4";
 	joint_state.position[3] = 0;
-	
 	add_noise(); //添加噪声，请勿修改此函数
-	update_position();//更新位置信息
+	update_position();//更新位置信
+	
+	//sometimes the subscriber can't subscribe the position of the car
+	//so I also use parameter server to get the position
+	ros::param::set("x_v",_position.x);
+	ros::param::set("y_v",_position.y);
+
 	pos_pub.publish(_pub_position);//发布位置信息到 "car_position" 信息格式为 geometry::msgs::Point
 	joint_pub.publish(joint_state);
 	broadcaster.sendTransform(odom_trans);//坐标变换广播
