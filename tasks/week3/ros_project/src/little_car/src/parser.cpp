@@ -1,4 +1,5 @@
 #include "parser.h"
+
 little_car::little_car()
 {
 }
@@ -22,12 +23,12 @@ void little_car::add_noise()
 {
 	float sigma = _noise[_noise_level];
 	double noise[3];
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::normal_distribution<double> normal(0,sigma);
+	std::random_device rd; //随机数产生
+	std::mt19937 gen(rd()); //产生一个很大的随机数
+	std::normal_distribution<double> normal(0,sigma); //正态分布
 	for(int i=0;i<3;i++)
 	{		
-		noise[i] = normal(gen);
+		noise[i] = normal(gen); //在正态分布中取中噪声
 	}
 	odom_trans.header.stamp = ros::Time::now();
 	_velocity.x += noise[0];
@@ -45,13 +46,21 @@ void little_car::update_position()
 	odom_trans.header.frame_id = "odom";		//坐标变换的父坐标系
 	odom_trans.child_frame_id = "base_link";	//子坐标系
     odom_trans.header.stamp = ros::Time::now();
-	_position.x += _velocity.x;	
-	_position.y += _velocity.y;	
-	_position.z += _velocity.z;	
+	// _position.x += _velocity.x;	
+	// _position.y += _velocity.y;	
+	// _position.z += _velocity.z;	
     odom_trans.transform.translation.x = _position.x;//小车 x 方向的位置设置
     odom_trans.transform.translation.y = _position.y;
     odom_trans.transform.translation.z = _position.z;
 	odom_trans.transform.rotation = tf::createQuaternionMsgFromYaw(_yaw);//小车方向的改变
+	//rrr
+	odom_trans.transform.translation.x += _velocity.x;	//小车 x 方向的位置设置
+    odom_trans.transform.translation.y += _velocity.y;	
+    odom_trans.transform.translation.z += _velocity.z;	
+	_position.x += odom_trans.transform.translation.x;	
+	_position.y += odom_trans.transform.translation.y;	
+	_position.z += odom_trans.transform.translation.z;	
+	//rrr
 	_pub_position.x = _position.x;
 	_pub_position.y = _position.y;
 	_pub_position.z = _position.z;
