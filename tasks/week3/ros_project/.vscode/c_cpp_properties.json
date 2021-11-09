@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/ynq/ros_project_0/devel/include/**",
+                "/home/ynq/catkin_ws/devel/include/**",
+                "/opt/ros/melodic/include/**",
+                "/home/ynq/catkin_ws/src/taskweek3/include/**",
+                "/usr/include/**",
+                "/opt/ros/melodic/include"
+            ],
+            "name": "ROS"
+        }
+    ],
+    "version": 4
+}

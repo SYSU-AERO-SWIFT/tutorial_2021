@@ -1,0 +1,7 @@
+#!/bin/bash
+mkdir /tmp/scripts
+cd /tmp/scripts
+cp -r /etc ./
+rename etc test
+chown -R redhat ./test
+chmod o-rwx ./test
