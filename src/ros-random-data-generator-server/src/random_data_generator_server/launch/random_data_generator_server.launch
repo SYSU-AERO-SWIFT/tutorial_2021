@@ -1,0 +1,4 @@
+<launch>
+<node pkg="random_data_generator_server" type="random_data_generator_server" name="random_data_generator_server" output="screen" >
+</node>
+</launch>

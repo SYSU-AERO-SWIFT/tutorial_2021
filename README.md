@@ -1,43 +1,30 @@
-# SYSU AERO-SWIFT 2021 秋季考核
+## About the frontmask vanisher
 
-![Swift Team Logo](https://github.com/SYSU-AERO-SWIFT/tutorial_2021/blob/main/logo.jpg)
+- Author: Lou Yuefeng
+- Revised: Lou Yuefeng
+- Date: 2021-10-3
+- Version: 1.0.0
+- Abstract: A brief introduction on the basic machanics of the Recovery file and tips for further utilization
+### Functions:
+	Firstly the **readVideo()** function is to read video through direct path, make sure you enter a feasible path
+	Then **process()** function randomly select 50(*you may change this number according to specific demand*) frames and take median property on 3-tunnel-scale pixel by pixel
+	The **showResult()** function is literally used to show image
+### Interfaces:
+	int main(int argc, char const* argv[])
+ {
+     Recovery TtTest;
+     TtTest.readVideo("video0.mp4");//Enter path here
+     TtTest.process();
+     TtTest.showResult();
+ 
+ }
 
-**欢迎来到中大空中机器人队 2021秋季考核任务。下面是一些关于考核和工程的相关说明。**
-
-## 考核仓库指南
-
-### 使用 [GitHub Wiki](https://github.com/SYSU-AERO-SWIFT/tutorial_2021/wiki)
-
-我们建立了[项目 Wiki](https://github.com/SYSU-AERO-SWIFT/tutorial_2021/wiki) 帮助各位熟悉考核流程，掌握各种工具的基本用法。请参考 Wiki 提供的信息完成考核，**仔细阅读 Git 部分按要求提交考核任务**。欢迎对不涉及具体题目而与考核有关的知识点做补充，Wiki 仓库作为 submodule 保存在 `wiki` 文件夹下。
-
-### 发起 [Issues](https://github.com/SYSU-AERO-SWIFT/tutorial_2021/issues)
-
-GitHub Issues 用于项目交流，如有任何问题可以在**考核**仓库的 [Issues](https://github.com/SYSU-AERO-SWIFT/tutorial_2020/issues) 中发起讨论（不是自己的答题仓库），提交需要遵循模板。有意义的讨论将**加分**并载入 Wiki 中。
-
-### 提交 [Pull Requests](https://github.com/SYSU-AERO-SWIFT/tutorial_2020/pulls)
-
-考核任务还在不断更新优化之中，在提交考核任务之外，如有任何推荐的补充资料或者错误更正也欢迎按模板[提交 PR](https://github.com/SYSU-AERO-SWIFT/tutorial_2020/pulls)，我们会将你的修改建议合并到考核仓库中。
-
-## 版本说明
-
-目前版本：**v5.0.0**
-
-如果任务发生变更或者修改都会在这里说明，请留意此处**强调更改**的版本更新。
-
-| 版本       | 更新内容                                                     |
-| ---------- | ------------------------------------------------------------ |
-| v1.0.0     | (2018) 发布了前三周的任务。                                  |
-| v1.1.0     | 发布了后四周的分流任务以及挑战任务，修改了 v1.0 的部分作业要求。 |
-| v1.2.0     | 分流任务做了相应修改，其中策略组部分新增任务：提交"如何应用深度学习到比赛策略的报告"。 |
-| v2.0.0     | 整改为任务八相关的考核。重新制定考核架构，公布基础考核题目。 |
-| v2.1.0     | 发布了后四周的项目考核。                                     |
-| v3.0.0     | (2019) 面向新的技术路线和 Mission 9 出的新的题目。           |
-| v3.1.0     | 发布了前三周的任务，修改了 v3.0.0 的部分要求。               |
-| v3.2.0     | 修改了第二周背景还原任务的要求和评分标准。[#12](https://github.com/SYSU-AERO-SWIFT/tutorial_2019/issues/12) |
-| v3.3.0     | 发布后三周的项目考核题目。                                   |
-| v4.0.0     | (2020) 面向Mission 9发布2020-2021年招新题目              |
-| **v5.0.0** | **(2021) 面向Mission 9发布2021年招新题目**               |
-
-## 版权声明
-
-**本仓库所有资料及其附件归中大空中机器人团队所有，禁止外泄资料！**
+### Depend Libraries:
+	include <opencv2/opencv.hpp>
+	include <iostream>
+	include <random>
+	include <time.h>
+	include <sys/stat.h>
+	include <sys/types.h>
+	include <unistd.h>
+	for advanced usage, maybe you should learn how Gussian Model MOG (statistical method based on probability theory)method or kkn(take stuff alike as one kind and observe their distance, take difference between frames as parameter)  method works, I didn't do much training so neither preformed well in this case
