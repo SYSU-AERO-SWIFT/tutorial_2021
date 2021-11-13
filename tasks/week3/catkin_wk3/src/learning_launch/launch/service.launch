@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="learning_service" name="client" type="test_client" output="screen"/>
+    <node pkg="learning_service" name="service" type="test_service" output="screen"/>
+</launch>

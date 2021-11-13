@@ -9,6 +9,7 @@
 #include <iomanip>
 using namespace std;
 
+
 int main(int argc, char** argv) {
     ros::init(argc, argv, "state_publisher");
     ros::NodeHandle n;
@@ -26,8 +27,8 @@ int main(int argc, char** argv) {
 	car.set_noise_level(0);		   //设置噪声等级
 	float yaw = 0.0;
     while (ros::ok()) {
-	//	yaw += 0.01;
-	//	car.set_yaw(yaw); 		   //修改小车的方向
+		yaw += 0.01;
+		car.set_yaw(yaw); 		   //修改小车的方向
 		car.set_velocity(velocity);//设置小车速度
         car.update_();//小车状态更新
 		loop_rate.sleep();
