@@ -1,0 +1,20 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week3/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/linhuangnan/catkin_ws/src/learning_topic/include/**",
+        "/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week3/catkin_ws/src/package_publish_random/include/**",
+        "/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week3/catkin_ws/src/service_and_client/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}

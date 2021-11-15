@@ -1,0 +1,8 @@
+prefix=/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week3/catkin_simulate_ws/devel_isolated/arbotix_msgs
+
+Name: arbotix_msgs
+Description: Description of arbotix_msgs
+Version: 0.11.0
+Cflags: -I/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week3/catkin_simulate_ws/devel_isolated/arbotix_msgs/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime std_msgs

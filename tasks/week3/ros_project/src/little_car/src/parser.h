@@ -27,13 +27,16 @@ class little_car
 		geometry_msgs::TransformStamped odom_trans;
 		geometry_msgs::Point _pub_position; //小车位置（用来pub的）
 		/*test*/
-		geometry_msgs::TransformStamped car_trans;
+		geometry_msgs::TransformStamped car_trans;	//小车位置信息发布者
 		/*****/
 		void add_noise();		//添加噪声
 		void update_position(); //更新位置
 	public:
+        ros::Publisher pos_pub;	//小车位置信息发布者
 		ros::Publisher joint_pub;
-		ros::Publisher pos_pub;	//小车位置信息发布者
+		
+		
+
 		void set_noise_level(int level);//设置噪声等级
 		little_car();			//构造函数
 		SVector3 get_velocity();	//获取小车速度信息
@@ -42,9 +45,6 @@ class little_car
 		void set_yaw(float yaw);	//设置小车方向
 		void update_();			//小车状态更新
 		int move_forward();	//前进函数
-		
-
-
 };
 
 

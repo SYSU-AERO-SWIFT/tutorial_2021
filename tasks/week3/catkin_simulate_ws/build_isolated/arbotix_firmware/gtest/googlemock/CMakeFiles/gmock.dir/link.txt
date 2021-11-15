@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -O2 -g -DNDEBUG  -shared -Wl,-soname,libgmock.so -o ../lib/libgmock.so CMakeFiles/gmock.dir/src/gmock-all.cc.o  -Wl,-rpath,/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week3/catkin_simulate_ws/build_isolated/arbotix_firmware/gtest/lib ../lib/libgtest.so -lpthread 

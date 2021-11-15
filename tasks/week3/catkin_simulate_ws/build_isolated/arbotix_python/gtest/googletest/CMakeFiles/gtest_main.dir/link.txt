@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -O2 -g -DNDEBUG  -shared -Wl,-soname,libgtest_main.so -o ../lib/libgtest_main.so CMakeFiles/gtest_main.dir/src/gtest_main.cc.o  -Wl,-rpath,/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week3/catkin_simulate_ws/build_isolated/arbotix_python/gtest/lib ../lib/libgtest.so -lpthread 

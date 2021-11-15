@@ -1,0 +1,21 @@
+<launch>
+    <!-- 将 urdf 文件内容设置进参数服务器 -->
+    <param name="robot_description" textfile="$(find simulate)/urdf/urdf/move_robot.urdf" />
+
+    <!-- 启动 rivz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find simulate)/config/rvizconfig.rviz"/>
+
+    <!-- 启动机器人状态和关节状态发布节点 -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+<!--
+    <node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen">
+    <rosparam file="$(find simulate)/config/move_robot.yaml" command="load" />
+    <param name="sim" value="true" />
+    </node>
+    -->
+
+   
+    <node name="" pkg="simulate" type="simulate_node" output="screen"/>
+
+</launch>

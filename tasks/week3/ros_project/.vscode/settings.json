@@ -1,0 +1,10 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week3/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "files.associations": {
+        "complex": "cpp",
+        "cmath": "cpp"
+    }
+}

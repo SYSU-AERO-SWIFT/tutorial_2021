@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"command":"catkin_make",
+			"args": [
+				"--directory",
+				"/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week3/catkin_ws",
+				"-DCMAKE_BUILD_TYPE=RelWithDebInfo"
+			],
+			"problemMatcher": [
+				"$catkin-gcc"
+			],
+			"group": {"kind":"build","isDefault": true},
+			"label": "catkin_make: debug",
+			"presentation": {"reveal": "always"}
+			
+		}
+	]
+}

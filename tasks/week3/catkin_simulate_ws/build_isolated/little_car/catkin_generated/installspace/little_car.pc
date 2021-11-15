@@ -1,0 +1,8 @@
+prefix=/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week3/catkin_simulate_ws/install_isolated
+
+Name: little_car
+Description: Description of little_car
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs message_runtime

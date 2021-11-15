@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   tf
   dynamic_reconfigure
+  message_generation
 )
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -70,11 +71,11 @@ find_package(catkin REQUIRED COMPONENTS
 #   Action2.action
 # )
 
-## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+# Generate added messages and services with any dependencies listed here
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -107,7 +108,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES little_car
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
 #  DEPENDS system_lib
 )
 
@@ -135,9 +136,11 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
- add_executable(${PROJECT_NAME}_node src/parser.cpp
+add_executable(${PROJECT_NAME}_node src/parser.cpp
 		 							 src/main.cpp)
-
+#add_executable(command_publish src/command_publish.cpp)
+#add_executable(make_turn src/make_turn.cpp)
+add_executable(add_noise src/add_noise.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -147,11 +150,14 @@ include_directories(
 ## Add cmake target dependencies of the executable
 ## same as for the library above
  add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
+# add_dependencies(command_publish ${catkin_EXPORTED_TARGETS})
+#add_dependencies(make_turn ${catkin_EXPORTED_TARGETS})
+add_dependencies(add_noise ${catkin_EXPORTED_TARGETS})
 # Specify libraries to link a library or executable target against
- target_link_libraries(${PROJECT_NAME}_node
-   ${catkin_LIBRARIES}
- )
+ target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES})
+#target_link_libraries(command_publish ${catkin_LIBRARIES})
+#target_link_libraries(make_turn ${catkin_LIBRARIES})
+target_link_libraries(add_noise ${catkin_LIBRARIES})
 
 #############
 ## Install ##
