@@ -1,0 +1,54 @@
+/*struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+ 
+ */
+
+ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
+{
+    ListNode* p1 = l1;//p1,p2分别是沿着l1，l2内部移动的指针
+    ListNode* p2 = l2;
+    ListNode* output = NULL;//输出所用到的链表节点
+    int tempsum = 0;//中间变量
+    int sum = 0;
+    vector<int>nums;//存放两个链表相应位次上数字的和的向量
+
+    for (; p1 != NULL || p2 != NULL; p1 = p1->next, p2 = p2->next)//遍历l1与l2所代表的链表，得到两个链表相应位次上数字的和，并放入nums向量中
+    {
+        if (p1 != NULL)
+            tempsum = p1->val;
+        if (p2 != NULL)
+            tempsum += p2->val;
+        nums.push_back(tempsum);
+        tempsum = 0;
+    }
+
+
+    for (int i = 0; i < nums.size(); i++)//将nums向量中各个位次上的数乘以相应的幂
+    {
+        sum += nums[i] * pow(10, i);
+    }
+
+    string sumstring = to_string(sum);//转换成字符串，方便后续处理
+    ListNode* current = NULL;
+    for (int i = sumstring.length() - 1; i != -1; i--)
+    {
+       
+        ListNode* temp = NULL;
+        if (i == sumstring.length() - 1)
+        {
+            output = new ListNode(int(sumstring[i]));
+            current = output;
+        }
+        else
+        {
+            temp = new ListNode(int(sumstring[i]));
+            current->next = temp;
+            current = current->next;
+        }
+       
+    }
+    return output;
+}
