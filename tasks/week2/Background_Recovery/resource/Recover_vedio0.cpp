@@ -49,12 +49,12 @@ void Recovery::process()
 
 void Recovery::showResult()
 {
-	imwrite ("~/Desktop/tutorial_2021/tutorial_2021/tasks/week2/Background_Recovery/result/video0_result.jpg",recovery_image);   //写至相关路径
+	imwrite ("/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week2/Background_Recovery/result/video2_result.jpg",recovery_image);   //写至相关路径
 }
 int main()
 {
 	Recovery recovery;
-	recovery.readVideo("/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week2/resource");
+	recovery.readVideo("/home/linhuangnan/Desktop/tutorial_2021/tutorial_2021/tasks/week2/resource/video0.mp4");
 	recovery.process();
 	recovery.showResult();
 }
