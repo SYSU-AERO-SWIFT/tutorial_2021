@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/opt/ros/noetic/include/**",
+                "/home/fangxu/catkin_ws/src/learning_topic/include/**",
+                "/usr/include/**",
+                "/opt/ros/noetic/include"
+            ],
+            "name": "ROS"
+        }
+    ],
+    "version": 4
+}

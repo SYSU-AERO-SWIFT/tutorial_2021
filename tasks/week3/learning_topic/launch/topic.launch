@@ -1,0 +1,4 @@
+<launch>
+<node pkg="learning_topic" type="person_publisher" name="person_publisher1"/>
+<node pkg="learning_topic" type="person_subscriber" name="person_subscriber1"/>
+</launch>
